@@ -29,7 +29,7 @@ export default function OAuth() {
       dispatch(signInSuccess(data));
       navigate('/');
     } catch (error) {
-      console.log('could not login with google', error);
+      console.log('No se pudo iniciar sesión con google', error);
     }
   };
   return (
