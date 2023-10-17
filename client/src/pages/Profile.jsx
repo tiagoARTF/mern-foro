@@ -118,12 +118,8 @@ export default function Profile() {
           accept='image/*'
           onChange={(e) => setImage(e.target.files[0])}
         />
-        {/* 
-      firebase storage rules:  
-      allow read;
-      allow write: if
-      request.resource.size < 2 * 1024 * 1024 &&
-      request.resource.contentType.matches('image/.*') */}
+         
+      
         <img
           src={formData.profilePicture || currentUser.profilePicture}
           alt='profile'
@@ -175,10 +171,10 @@ export default function Profile() {
           onClick={handleDeleteAccount}
           className='text-red-700 cursor-pointer'
         >
-          Delete Account
+          Eliminar Cuenta
         </span>
         <span onClick={handleSignOut} className='text-red-700 cursor-pointer'>
-          Sign out
+          Cerrar sesión
         </span>
       </div>
       <p className='text-red-700 mt-5'>{error && 'Ocurrio un error!'}</p>

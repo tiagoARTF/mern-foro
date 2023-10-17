@@ -37,4 +37,17 @@ export const test = (req, res) => {
     }   catch(error){
         next(error);
     }
- }
+ };
+
+ export const deleteUser = async (req, res, next) => {
+    if(req.user.id !== req.params.id){
+        return next(errorHandler(401, 'Solamente puedes eliminar si tienes una cuenta'));
+    }
+    try {
+        await User.findByIdAndDelete(req.params.id);
+        res.status(200).json('El usuario ha sido eliminado')
+    } catch (error){
+        next(error);
+    }
+ };
+
