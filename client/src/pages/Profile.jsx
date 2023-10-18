@@ -45,6 +45,7 @@ export default function Profile() {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setImagePercent(Math.round(progress));
       },
+      // eslint-disable-next-line
       (error) => {
         setImageError(true);
       },
@@ -118,8 +119,12 @@ export default function Profile() {
           accept='image/*'
           onChange={(e) => setImage(e.target.files[0])}
         />
-         
-      
+        {/* 
+      firebase storage rules:  
+      allow read;
+      allow write: if
+      request.resource.size < 2 * 1024 * 1024 &&
+      request.resource.contentType.matches('image/.*') */}
         <img
           src={formData.profilePicture || currentUser.profilePicture}
           alt='profile'
@@ -171,15 +176,15 @@ export default function Profile() {
           onClick={handleDeleteAccount}
           className='text-red-700 cursor-pointer'
         >
-          Eliminar Cuenta
+          Delete Account
         </span>
         <span onClick={handleSignOut} className='text-red-700 cursor-pointer'>
-          Cerrar sesión
+          Sign out
         </span>
       </div>
-      <p className='text-red-700 mt-5'>{error && 'Ocurrio un error!'}</p>
+      <p className='text-red-700 mt-5'>{error && 'Something went wrong!'}</p>
       <p className='text-green-700 mt-5'>
-        {updateSuccess && 'Usuario actualizado exitosamente!'}
+        {updateSuccess && 'User is updated successfully!'}
       </p>
     </div>
   );
