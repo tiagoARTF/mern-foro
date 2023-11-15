@@ -22,7 +22,7 @@ const PrincipalPage = () => {
     <button
       className="btn-link"
       style={{ padding: '1vw 3vw' }}
-      onClick={() => (window.location.href = '/sign-up')}
+      onClick={() => (window.location.href = '/book')}
     >
       Ingresar
     </button>

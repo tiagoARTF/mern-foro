@@ -1,6 +1,8 @@
 /* Estilos para el encabezado */
 .header {
-    background-color: #cc783cb3; /* Color de fondo con opacidad (en este caso, 70%) */
+    min-height: 75vh;
+    background: linear-gradient(rgba(141, 39, 174, 0.3), rgba(141, 39, 174, 0.5)), url("../assets/img/library-img.jpg") center/cover no-repeat;
+    flex-direction: column;
     color: #fff;
     display: flex;
     justify-content: space-between;
